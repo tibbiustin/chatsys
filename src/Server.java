@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class Server {
-    private static ArrayList<ClientThread> clients = new ArrayList<>();
+    private static ActiveClients clients = new ActiveClients();
 
     public static void main(String[] args) {
         System.out.println("--Server up--");
@@ -18,18 +18,12 @@ public class Server {
             ServerSocket server = new ServerSocket(PORT);
             while (true) {
                 Socket socket = server.accept();
-                ClientThread client = new ClientThread(socket);
+                ClientThread client = new ClientThread(socket, clients);
                 client.start();
                 clients.add(client);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    public void broadcastMessage(String message) {
-        for (ClientThread client : clients) {
-
         }
     }
 }
