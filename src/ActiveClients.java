@@ -1,12 +1,11 @@
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Iterator;
-
 /**
  * Created by Tibi on 03/10/2017.
  */
+
+import java.util.ArrayList;
+
 public class ActiveClients {
-    private ArrayList<ClientThread> clients = new ArrayList<>();
+    private volatile ArrayList<ClientThread> clients = new ArrayList<>();
 
     public void add(ClientThread client) {
         clients.add(client);

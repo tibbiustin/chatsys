@@ -2,10 +2,8 @@
  * Created by Tibi on 02/10/2017.
  */
 
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class Server {
     private static ActiveClients clients = new ActiveClients();
